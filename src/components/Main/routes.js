@@ -4,11 +4,12 @@ import ProductPage from "./views/Product";
 import EngagementsPage from "./views/Engagements";
 import InboxIcon from "@material-ui/icons/Inbox";
 import { IconButton } from "@material-ui/core";
+import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
 const dashboardRouters = [
   {
     path: "/product",
     name: "Product",
-    icon: Person,
+    icon: FormatListBulletedIcon ,
     component: ProductPage,
   },
   // {
