@@ -1,21 +1,30 @@
-import React from "react";
-
-import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-import Main from "./components/Main/main";
+import React, { useState } from 'react';
+import { IntlProvider } from 'react-intl';
+import Layout from './views/Layout';
+import messages from './messages';
+import { BrowserRouter as Router, Switch } from 'react-router-dom';
+import './styles/App.scss';
+import {RouteWithSubRoutes} from './routes'
+import {routes} from './routes'
 
 function App() {
+  const [locale, setLocale] = useState('en');
+
   return (
     <Router>
-      <div className="App">
-        <Switch>
-          <Route path="/dashboard" component={Main} />
-          <Route path="/product" component={Main} />
-          <Route path="/engagements" component={Main} />
-        </Switch>
-      </div>
+    <IntlProvider locale={locale} messages={messages[locale]}>
+      <Layout setLocale={setLocale}/>
+      <div id="modal_root"></div>
+    </IntlProvider>
+
+    
+    <Switch>
+          {routes.map((route, i) => (
+            <RouteWithSubRoutes key={i} {...route} />
+          ))}
+    </Switch>
     </Router>
+
   );
 }
 
