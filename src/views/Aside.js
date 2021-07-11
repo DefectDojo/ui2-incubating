@@ -1,5 +1,4 @@
 import React from 'react';
-import { useIntl } from 'react-intl';
 import {Link} from 'react-router-dom';
 import {
   ProSidebar,
@@ -14,7 +13,6 @@ import { FaTachometerAlt, FaGem, FaList, FaHeart } from 'react-icons/fa';
 import defectdogologo from "../images/defect.png";
 
 const Aside = () => {
-  const intl = useIntl();
   return (
     <ProSidebar
       collapsed="true"
@@ -40,11 +38,11 @@ const Aside = () => {
         <Menu iconShape="circle">
           <MenuItem
             icon={<FaTachometerAlt />}
-            suffix={<span className="badge red">{intl.formatMessage({ id: 'new' })}</span>}
+            suffix={<span className="badge red">Item</span>}
           >
-            {intl.formatMessage({ id: 'dashboard' })}
+            Dashboard
           </MenuItem>
-          <MenuItem icon={<FaGem />}> {intl.formatMessage({ id: 'components' })}</MenuItem>
+          <MenuItem icon={<FaGem />}> components</MenuItem>
         </Menu>
         <Menu iconShape="square">
           <SubMenu
@@ -56,27 +54,27 @@ const Aside = () => {
             <Link to="/products" />
             </MenuItem>
             <MenuItem>Add Product <Link to="/product/add"/></MenuItem>
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3</MenuItem>
+            <MenuItem>Submenu 3</MenuItem>
           </SubMenu>
           <SubMenu
             prefix={<span className="badge gray">3</span>}
-            title={intl.formatMessage({ id: 'withPrefix' })}
+            title="withPrefix"
             icon={<FaHeart />}
           >
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 1</MenuItem>
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 2</MenuItem>
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3</MenuItem>
+            <MenuItem>submenu 1</MenuItem>
+            <MenuItem>submenu 2</MenuItem>
+            <MenuItem>submenu 3</MenuItem>
           </SubMenu>
-          <SubMenu title={intl.formatMessage({ id: 'multiLevel' })} icon={<FaList />}>
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 1 </MenuItem>
-            <MenuItem>{intl.formatMessage({ id: 'submenu' })} 2 </MenuItem>
-            <SubMenu title={`${intl.formatMessage({ id: 'submenu' })} 3`}>
-              <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3.1 </MenuItem>
-              <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3.2 </MenuItem>
-              <SubMenu title={`${intl.formatMessage({ id: 'submenu' })} 3.3`}>
-                <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3.3.1 </MenuItem>
-                <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3.3.2 </MenuItem>
-                <MenuItem>{intl.formatMessage({ id: 'submenu' })} 3.3.3 </MenuItem>
+          <SubMenu title="multlevel" icon={<FaList />}>
+            <MenuItem>submenu 1 </MenuItem>
+            <MenuItem>submenu 2 </MenuItem>
+            <SubMenu title="submenu 3">
+              <MenuItem>submenu 3.1 </MenuItem>
+              <MenuItem>submenu 3.2 </MenuItem>
+              <SubMenu title="submenu 4">
+                <MenuItem>submenu 3.3.1 </MenuItem>
+                <MenuItem>submenu 3.3.2 </MenuItem>
+                <MenuItem>submenu 3.3.3 </MenuItem>
               </SubMenu>
             </SubMenu>
           </SubMenu>

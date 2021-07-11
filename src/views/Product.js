@@ -2,7 +2,7 @@ import React from "react";
 import { DataGrid, GridToolbar } from '@material-ui/data-grid';
 import { makeStyles } from '@material-ui/styles';
 import { column, row } from "./jsonFile";
-// import { createMuiTheme } from "@material-ui/core";
+import { Fragment } from "react";
 
 const columns = column
 const rows = row
@@ -37,6 +37,7 @@ function Product() {
   const classes = useStyles();
   fetchData();
   return (
+    <Fragment>
     <div style={{ height: 600, width: '100%', textAlign:'center' }} className={classes.root}>
     <DataGrid
       rows={rows}
@@ -49,6 +50,7 @@ function Product() {
       disableSelectionOnClick
     />
   </div>
+  </Fragment>
   );
 }
 
