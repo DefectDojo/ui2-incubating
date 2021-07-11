@@ -1,7 +1,6 @@
 import { Button } from '@material-ui/core';
-import React from 'react';
+import React,{useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
@@ -10,6 +9,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import{ Component } from 'react';
+import { authenticate, isLoggedIn } from '../services/auth';
+import { useHistory } from 'react-router-dom';
 
 class PasswordShowHide extends Component {
   constructor(props) {
@@ -26,6 +27,7 @@ class PasswordShowHide extends Component {
 
   handlePasswordChange(e) {
     this.setState({ password: e.target.value });
+    this.props.setPassword(this.state.password)
   }
 
   toggleShow() {
@@ -92,6 +94,18 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles();
 
+  const [name, setName] = useState("");
+  const [password, setPassword] = useState("");
+  let history = useHistory()
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    authenticate(name, password)
+    if(isLoggedIn){
+      history.push("/")
+    }
+  }
+
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -100,7 +114,7 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form className={classes.form} onSubmit={handleSubmit} noValidate>
           <TextField
             variant="outlined"
             margin="normal"
@@ -110,9 +124,11 @@ export default function SignIn() {
             label="Username"
             name="username"
             autoComplete="username"
+            value={name}
+            onChange={e => setName(e.target.value)}
             autoFocus
           />
-          <PasswordShowHide />
+          <PasswordShowHide password={password} setPassword={setPassword}/>
           <Button
             type="submit"
             fullWidth

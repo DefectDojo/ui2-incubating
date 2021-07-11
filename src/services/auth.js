@@ -1,5 +1,12 @@
 import {baseURL} from "./api"
 
+export function isLoggedIn(){
+    if(!localStorage.getItem("token")){
+        return false
+    }
+    return true
+}
+
 
 export function authenticate(username, password){
 
@@ -11,7 +18,6 @@ export function authenticate(username, password){
             "password": password
         })
     };
-
     return fetch(baseURL+"api-token-auth/", requestOptions)
         .then(response => {
             if(!response.ok){
