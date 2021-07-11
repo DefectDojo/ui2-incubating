@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Button } from '@material-ui/core';
 import React,{useState} from 'react';
 import Avatar from '@material-ui/core/Avatar';
@@ -143,3 +144,16 @@ export default function SignIn() {
     </Container>
   );
 }
+=======
+import React from 'react';
+
+function Login() {
+    return (
+        <div>
+      <h1>Login Page</h1>
+      </div>
+    );
+  }
+
+export default Login
+>>>>>>> main
