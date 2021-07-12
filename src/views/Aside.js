@@ -35,7 +35,7 @@ const Aside = () => {
         </div>
       </SidebarHeader >
 
-      <SidebarContent style={{backgroundColor:'#0f4f76', color:'white'}}>
+      <SidebarContent>
         <Menu iconShape="circle" >
           <MenuItem
             icon={<FaTachometerAlt />}
