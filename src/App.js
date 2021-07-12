@@ -4,15 +4,18 @@ import './styles/App.scss';
 import { PrivateRoute } from './_components/PrivateRoute';
 import Product from './views/Product';
 import Login from './LoginPage/Login';
+import Layout from './views/Layout';
+import Aside from './views/Aside';
 
 
 function App() {
 
   return (
     <Router>
-      <PrivateRoute exact path="/products" component={Product}/>
+      <Route exact path="/login" component={Login}/>
+
+      <PrivateRoute path="/" component={Layout}/>
       
-      <Route path="/login" component={Login}/>
     </Router>
 
   );

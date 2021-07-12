@@ -71,7 +71,7 @@ export default function AnimatedModal() {
                             <input type="Text" placeholder="Origin" size="50"></input><br /><br />
                             <input type="Text" placeholder="User Records" size="50" required></input><br /><br />
                             <input type="Text" placeholder="Revenue" size="50"></input><br /><br />
-                            <input type="checkbox" style="text-align: centre; vertical-align:middle;"></input>
+                            <input type="checkbox"></input>
                             <label>Expernal Audience</label><br />
                             <input type="checkbox"></input>
                             <label>Internet accessible</label><br />

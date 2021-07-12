@@ -1,7 +1,8 @@
-import { Route, Switch } from "react-router"
+import { Switch } from "react-router"
 import Product from "./Product"
 import React from 'react'
 import AddProduct from './AddProduct'
+import { PrivateRoute } from '../_components/PrivateRoute';
 
 
 
@@ -9,8 +10,8 @@ import AddProduct from './AddProduct'
 const Main = () =>{
     return (
         <Switch>
-        <Route exact path='/products' component={Product} />
-        <Route exact path='/product/add' component={AddProduct}/> 
+        <PrivateRoute exact path='/products' component={Product} />
+        <PrivateRoute exact path='/product/add' component={AddProduct}/> 
         </Switch>
     )
 }
