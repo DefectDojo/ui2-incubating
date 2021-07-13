@@ -40,7 +40,6 @@ const Aside = () => {
           <MenuItem
             icon={<FaTachometerAlt />}
             suffix={<span className="badge red">Item</span>}
-            
           >
             Dashboard
           </MenuItem>
