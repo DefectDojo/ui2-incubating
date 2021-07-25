@@ -138,7 +138,6 @@ class Product extends React.Component {
 
   render(){
     const { classes } = this.props
-    console.log(this.state.rows)
     return (
       <Fragment>
       <div style={{ height: 600, width: '100%', textAlign:'center' }} className={classes.root} >
