@@ -1,5 +1,5 @@
 import React,{ Component } from "react";
-import { Navbar, Container, Nav, Dropdown} from "react-bootstrap";
+import { Navbar, Nav, Dropdown} from "react-bootstrap";
 import { withRouter } from "react-router";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import defectdojologo from '../images/defectdojo.png'
