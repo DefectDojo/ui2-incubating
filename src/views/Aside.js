@@ -63,7 +63,9 @@ const Aside = () => {
             title="withPrefix"
             icon={<FaHeart />}
           >
-            <MenuItem>submenu 1</MenuItem>
+            <MenuItem>All Engagements
+            <Link to="/engagements"/>
+            </MenuItem>
             <MenuItem>submenu 2</MenuItem>
             <MenuItem>submenu 3</MenuItem>
           </SubMenu>
