@@ -46,8 +46,6 @@ function FetchProductTypeNameById(id){
         })
       });
 }
-<<<<<<< Updated upstream
-=======
 
 function FetchEngagementByProductId(id){
     const url = engagementUrl+"?product="+id
@@ -60,4 +58,3 @@ function FetchEngagementByProductId(id){
         })
       });
 }
->>>>>>> Stashed changes
