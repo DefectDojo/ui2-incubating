@@ -72,6 +72,20 @@ const columns =[
     editable: true,
     headerAlign: 'center',
     align:'center',
+    renderCell: (params) => {
+      var active = 0
+      var closed = 0
+      
+      params.value.forEach(element => {
+        if(element["active"]){
+           active++
+        } else {
+           closed++
+        }
+      });
+
+      return <span> Active {active}, Closed {closed}</span>
+    }
   },
   {
     field: 'findings_count',
