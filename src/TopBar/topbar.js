@@ -1,7 +1,8 @@
 import React,{ Component } from "react";
-import { Navbar, Container, Nav, Dropdown} from "react-bootstrap";
+import { Navbar, Nav, Dropdown} from "react-bootstrap";
 import { withRouter } from "react-router";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import defectdojologo from '../images/defectdojo.png'
 
 class TopBar extends Component{
     constructor(props){
@@ -32,21 +33,30 @@ class TopBar extends Component{
         var page = this.GetRouteHeading();
         return (
             <Navbar bg="light" expand="lg">
-                <Container>
-                    <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                    <Navbar.Brand>
+                    <img
+                        src={defectdojologo}
+                        width="300"
+                        height="50"
+                        className="d-inline-block align-top"
+                        alt="React Bootstrap logo"
+                    />
+                    </Navbar.Brand>
                     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                    <Navbar.Collapse id="basic-navbar-nav">
+                    <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
                         <Nav.Item className="m-auto">{page}</Nav.Item>
+                    
+                        <Dropdown>
+                        <Dropdown.Toggle variant="info" id="dropdown-basic">
+                            <AccountCircleIcon/>
+                        </Dropdown.Toggle>
+                            <Dropdown.Menu>
+                                <Dropdown.Item divider />
+                                <Dropdown.Item onClick={this.Logout}>Logout</Dropdown.Item>
+                            </Dropdown.Menu>
+                        </Dropdown>
+
                     </Navbar.Collapse>
-                    <Dropdown>
-                    <Dropdown.Toggle variant="info" id="dropdown-basic">
-                        <AccountCircleIcon/>
-                    </Dropdown.Toggle>
-                        <Dropdown.Menu>
-                            <Dropdown.Item onClick={this.Logout}>Logout</Dropdown.Item>
-                        </Dropdown.Menu>
-                    </Dropdown>
-                </Container>
             </Navbar>
         );
     }
