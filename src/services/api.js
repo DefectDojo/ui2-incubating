@@ -1,11 +1,7 @@
 export const baseURL = "http://localhost:8080/api/v2/"
 export const productListUrl = baseURL+"products/"
 export const productTypeUrl = baseURL+"product_types/"
-<<<<<<< HEAD
-export const engagementUrl = baseURL+"engagements/"
-=======
 export const engagementListUrl = baseURL+"engagements/"
->>>>>>> 4b5a9f0 (Add Engagement Table t)
 
 export function FetchProductsData(setRowData){
     var currentToken = localStorage.getItem("token")
