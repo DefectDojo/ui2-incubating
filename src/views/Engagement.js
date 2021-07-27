@@ -87,7 +87,12 @@ class Engagement extends React.Component {
   }
 
   componentDidMount(){
-    FetchEngagementData(this.setRowData);
+    var path = this.props.location.pathname.split("/")[2]
+    var active = false
+    if(path === "active"){
+      active = true
+    }
+    FetchEngagementData(this.setRowData, active);
   }
 
   render(){

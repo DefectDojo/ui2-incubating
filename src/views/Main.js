@@ -16,7 +16,8 @@ const Main = () =>{
         <Switch>
         <PrivateRoute exact path='/products' component={Product} />
         <PrivateRoute exact path='/product/add' component={AddProduct}/> 
-        <PrivateRoute exact path='/engagements' component={Engagement}/> 
+        <PrivateRoute key="engagement_all" exact path='/engagements/all' component={Engagement}/> 
+        <PrivateRoute key="engagement_active" exact path='/engagements/active' component={Engagement}/> 
         </Switch>
         </div>
     )

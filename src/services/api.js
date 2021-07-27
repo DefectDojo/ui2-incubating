@@ -26,7 +26,6 @@ export function FetchProductsData(setRowData){
       return await Promise.all(res.map(async(response) => {
         const typepromise = await FetchEngagementByProductId(response["id"])
         const engagement = await typepromise.json()
-        console.log(engagement)
         response.engagements=engagement["results"]
         return response
     }))
@@ -34,9 +33,13 @@ export function FetchProductsData(setRowData){
     .then(res => setRowData(res))
 }
 
-export function FetchEngagementData(setRowData){
+export function FetchEngagementData(setRowData, active){
     var currentToken = localStorage.getItem("token")
-    return fetch(engagementListUrl ,{
+    var currentUrl = engagementListUrl
+    if(active){
+      currentUrl+="?=active=true"
+    }
+    return fetch(currentUrl ,{
       method: 'get',
       headers: new Headers({
         'Accept': 'application/json',
@@ -46,7 +49,15 @@ export function FetchEngagementData(setRowData){
     .then(res => res.json())
     .then(res => res["results"])
     .then(async(res) => {
-      console.log(res)
+        return await Promise.all(res.map(async(response) => {
+            const typepromise = await FetchProductByProductId(response["product"])
+            const type = await typepromise.json()
+            response["product"] = type["name"]
+            response["prod_type"] = type["prod_type"]
+            return response
+        }))
+    })
+    .then(async(res) => {
         return await Promise.all(res.map(async(response) => {
             const typepromise = await FetchProductTypeNameById(response["prod_type"])
             const type = await typepromise.json()
@@ -75,8 +86,19 @@ function FetchProductTypeNameById(id){
       });
 }
 
+function FetchProductByProductId(id){
+  var currentToken = localStorage.getItem("token")
+    return fetch(productListUrl+id+"/", {
+        method: 'get',
+        headers: new Headers({
+          'Accept': 'application/json',
+          'Authorization': "Token "+currentToken,
+        })
+      });
+}
+
 function FetchEngagementByProductId(id){
-    const url = engagementUrl+"?product="+id
+    const url = engagementListUrl+"?product="+id
     var currentToken = localStorage.getItem("token")
     return fetch(url, {
         method: 'get',
