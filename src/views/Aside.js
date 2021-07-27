@@ -9,7 +9,7 @@ import {
   SidebarFooter,
   SidebarContent,
 } from 'react-pro-sidebar';
-import { FaTachometerAlt, FaGem, FaList, FaHeart } from 'react-icons/fa';
+import { FaTachometerAlt, FaGem, FaList, FaInbox } from 'react-icons/fa';
 import defectdogologo from "../images/defect.png";
 
 const Aside = () => {
@@ -61,10 +61,16 @@ const Aside = () => {
           <SubMenu
             prefix={<span className="badge gray">3</span>}
             title="withPrefix"
-            icon={<FaHeart />}
+            icon={<FaInbox />}
           >
-            <MenuItem>submenu 1</MenuItem>
-            <MenuItem>submenu 2</MenuItem>
+            <MenuItem>
+              All Engagements
+              <Link to="/engagements/all"/>
+            </MenuItem>
+            <MenuItem>
+              Active Engagements
+              <Link to="/engagements/active"/>
+            </MenuItem>
             <MenuItem>submenu 3</MenuItem>
           </SubMenu>
           <SubMenu title="multlevel" icon={<FaList />}>
