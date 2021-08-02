@@ -1,7 +1,6 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Modal, Button, Form } from 'react-bootstrap';
-import { ReactIntlError } from 'react-intl';
 
 class ModalTest extends React.Component {
 
