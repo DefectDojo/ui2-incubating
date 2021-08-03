@@ -55,7 +55,12 @@ const Aside = () => {
             <MenuItem >Product List
             <Link to="/products" />
             </MenuItem>
-            <MenuItem>Add Product <Link to="/product/add"/></MenuItem>
+            <MenuItem>Add Product 
+            <Link to={{
+              pathname: '/product/add',
+              state: {modal:true}
+              }}/>
+            </MenuItem>
             <MenuItem>Submenu 3</MenuItem>
           </SubMenu>
           <SubMenu
