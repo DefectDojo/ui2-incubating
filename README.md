@@ -2,6 +2,8 @@
 ## Setup for local development
 Spinning up the local ReactJS environment on port 3000 and a local DefectDojo backend will create CORS conflicts.
 
+> Due to a current bug, the current password should be input with a trailing space. If you get some errors and have not tried that, please do.
+
 ### Assumptions
 - Your local react app runs on port 3000.
 - You have a local DefectDojo instance running at localhost port 8080.
