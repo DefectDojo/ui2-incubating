@@ -1,11 +1,13 @@
-# Defect Dojo new UI v2 incubating
-Work in Progress - GSoC 2021
+# Defect Dojo new UI v2 incubating Work in Progress - GSoC 2021
 ## Setup for local development
-Spinning up the local ReactJS environment on port 3000 and a local DefectDojo backend will create CORS conflict.
-It is expected that you have a local DefectDojo instance running at localhost port 8080.
+Spinning up the local ReactJS environment on port 3000 and a local DefectDojo backend will create CORS conflicts.
+
+### Assumptions
+- Your local react app runs on port 3000.
+- You have a local DefectDojo instance running at localhost port 8080.
 
 ### Browser extension
-For development purposes only, you can install a browser extension such as [this one](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc)
+For development purposes only, you can install a browser extension such as [this one](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc).
 
 ### Rebuild the DefectDojo docker images with some CORS packages and config
 Append the following line to the bottom of your `requirements.txt` file:
