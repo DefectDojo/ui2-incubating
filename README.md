@@ -1,10 +1,55 @@
-# Defect Dojo new UI v2 incubating
+# Defect Dojo new UI v2 incubating Work in Progress - GSoC 2021
+## Setup for local development
+Spinning up the local ReactJS environment on port 3000 and a local DefectDojo backend will create CORS conflicts.
 
-# Setup
+> Due to a current bug, the current password should be input with a trailing space. If you get some errors and have not tried that, please do.
+
+### Assumptions
+- Your local react app runs on port 3000.
+- You have a local DefectDojo instance running at localhost port 8080.
+
+### Browser extension
+For development purposes only, you can install a browser extension such as [this one](https://chrome.google.com/webstore/detail/moesif-origin-cors-change/digfbfaphojjndkpccljibejjbppifbc).
+
+### Rebuild the DefectDojo docker images with some CORS packages and config
+Append the following line to the bottom of your `requirements.txt` file:
+
+```
+django-cors-headers==3.7.0
+```
+
+Create (from the template) or modify your `dojo/settings/local_settings.py` file with:
+
+```
+INSTALLED_APPS += (
+    'corsheaders'
+)
+```
+
+and your middleware section, such as:
+
+```
+MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+]
+```
+
+Add the following environment variable (change the origin per your url, such as local hostname for example)
+```
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000"
+]
+```
+
+Alternatively, you can consider using `CORS_ALLOW_ALL_ORIGINS = True`.
+
+Then, rebuild your local images: `docker-compose build` and relaunch: `docker-compose stop` and `docker-compose up -d`.
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `yarn install`
 
 ### `yarn start`
 
