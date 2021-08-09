@@ -1,11 +1,12 @@
 import React from 'react'
-import ModalTest from './Modal.js';
 import { Switch } from "react-router"
 import Product from "./Product"
 import Engagement from "./Engagement"
 import { PrivateRoute } from '../_components/PrivateRoute';
 import TopBar  from "../TopBar/topbar.js";
 import {withRouter} from "react-router-dom";
+import AddProduct from './AddProduct';
+import AddProductType from './AddProductType';
 
 class Main extends React.Component{
     constructor(props){
@@ -31,12 +32,16 @@ class Main extends React.Component{
         <TopBar/>
         <Switch location={isModal ? this.previousLocation : location} >
         <PrivateRoute exact path='/products' component={Product} />
-        <PrivateRoute exact path='/product/add' component={ModalTest}/> 
+        <PrivateRoute exact path='/product/add' component={AddProduct}/> 
+        <PrivateRoute exact path='/producttype/add' component={AddProductType}/> 
         <PrivateRoute key="engagement_all" exact path='/engagements/all' component={Engagement}/> 
         <PrivateRoute key="engagement_active" exact path='/engagements/active' component={Engagement}/> 
         </Switch>
         {isModal
-        ? <PrivateRoute exact path="/product/add" component={ModalTest} />
+        ? <Switch>
+            <PrivateRoute exact path="/product/add" component={AddProduct} />
+            <PrivateRoute exact path='/producttype/add' component={AddProductType}/> 
+          </Switch>
         : null
          }
         </div>

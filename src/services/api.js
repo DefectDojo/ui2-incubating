@@ -2,6 +2,7 @@ export const baseURL = "http://localhost:8080/api/v2/"
 export const productListUrl = baseURL+"products/"
 export const productTypeUrl = baseURL+"product_types/"
 export const engagementListUrl = baseURL+"engagements/"
+const userUrl = baseURL+"users/"
 
 export function FetchProductsData(setRowData){
     var currentToken = localStorage.getItem("token")
@@ -107,4 +108,50 @@ function FetchEngagementByProductId(id){
           'Authorization': "Token "+currentToken,
         })
       });
+}
+
+export function FetchProductTypes(){
+  var currentToken = localStorage.getItem("token")
+  return fetch(productTypeUrl, {
+    headers: new Headers({
+      'Accept':'application/json',
+      'Authorization': "Token "+currentToken,
+    })
+  })
+}
+
+export function FetchUsers(){
+  var currentToken = localStorage.getItem("token")
+  return fetch(userUrl, {
+    headers: new Headers({
+      'Accept':'application/json',
+      'Authorization': "Token "+currentToken,
+    })
+  })
+}
+
+export function CreateNewProduct(product){
+  var currentToken = localStorage.getItem("token")
+  const requestOptions = {
+    method: 'POST',
+    headers: new Headers({
+      'Content-Type':'application/json',
+      'Authorization': "Token "+currentToken,
+    }),
+    body: JSON.stringify(product)
+  }
+  return fetch(productListUrl, requestOptions);
+}
+
+export function CreateNewProductType(productType){
+  var currentToken = localStorage.getItem("token")
+  const requestOptions = {
+    method: 'POST',
+    headers: new Headers({
+      'Content-Type':'application/json',
+      'Authorization': "Token "+currentToken,
+    }),
+    body: JSON.stringify(productType)
+  }
+  return fetch(productTypeUrl, requestOptions);
 }

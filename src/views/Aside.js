@@ -43,11 +43,10 @@ const Aside = () => {
           >
             Dashboard
           </MenuItem>
-          <MenuItem icon={<FaGem />}> components</MenuItem>
         </Menu>
+
         <Menu iconShape="square"  >
           <SubMenu
-          
             suffix={<span className="badge yellow">3</span>}
             title="product"
             icon={<FaList />}
@@ -55,14 +54,29 @@ const Aside = () => {
             <MenuItem >Product List
             <Link to="/products" />
             </MenuItem>
+
             <MenuItem>Add Product 
             <Link to={{
               pathname: '/product/add',
               state: {modal:true}
               }}/>
             </MenuItem>
-            <MenuItem>Submenu 3</MenuItem>
+
+
+            <MenuItem>All Product Types
+            <Link to="/producttype"/>
+            </MenuItem>
+
+            <MenuItem>Add Product Type 
+            <Link to={{
+              pathname: '/producttype/add',
+              state: {modal:true}
+              }}/>
+            </MenuItem>
+
           </SubMenu>
+
+
           <SubMenu
             prefix={<span className="badge gray">3</span>}
             title="withPrefix"
@@ -78,20 +92,8 @@ const Aside = () => {
             </MenuItem>
             <MenuItem>submenu 3</MenuItem>
           </SubMenu>
-          <SubMenu title="multlevel" icon={<FaList />}>
-            <MenuItem>submenu 1 </MenuItem>
-            <MenuItem>submenu 2 </MenuItem>
-            <SubMenu title="submenu 3">
-              <MenuItem>submenu 3.1 </MenuItem>
-              <MenuItem>submenu 3.2 </MenuItem>
-              <SubMenu title="submenu 4">
-                <MenuItem>submenu 3.3.1 </MenuItem>
-                <MenuItem>submenu 3.3.2 </MenuItem>
-                <MenuItem>submenu 3.3.3 </MenuItem>
-              </SubMenu>
-            </SubMenu>
-          </SubMenu>
-        </Menu>
+
+       </Menu>
       </SidebarContent>
 
       <SidebarFooter style={{ textAlign: 'center', backgroundColor: 'white', color: '#0f4f76'}}>
