@@ -22,6 +22,7 @@ class AddProduct extends React.Component {
     .then(res=> res["results"])
     .then(res => res.map(arr => {
       selectElement.append(new Option(arr["name"], arr["id"]))
+      return arr;
     }));
   }
 
@@ -37,6 +38,7 @@ class AddProduct extends React.Component {
       one.append(new Option(arr["username"], arr["id"]));
       two.append(new Option(arr["username"], arr["id"]));
       three.append(new Option(arr["username"], arr["id"]));
+      return arr;
     }));
   }
 
