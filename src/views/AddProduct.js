@@ -75,12 +75,12 @@ class AddProduct extends React.Component {
         <Form onSubmit={this.onFormSubmit}>
             <Form.Group className="mb-3">
               <Form.Label>Name</Form.Label>
-              <Form.Control type="text" name="name" placeholder="Enter Product Name" />
+              <Form.Control type="text" name="name" placeholder="Enter Product Name" required/>
             </Form.Group>
           
             <Form.Group className="mb-3">
               <Form.Label>Description</Form.Label>
-              <Form.Control type="text" name="description" placeholder="Description" />
+              <Form.Control type="text" name="description" placeholder="Description" required/>
             </Form.Group>
 
             <Form.Group className="mb-3">
