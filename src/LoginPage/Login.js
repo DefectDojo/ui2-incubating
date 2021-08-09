@@ -27,7 +27,7 @@ class PasswordShowHide extends Component {
 
   handlePasswordChange(e) {
     this.setState({ password: e.target.value });
-    this.props.setPassword(this.state.password)
+    this.props.setPassword(e.target.value)
   }
 
   toggleShow() {
