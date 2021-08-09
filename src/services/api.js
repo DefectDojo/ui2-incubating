@@ -142,3 +142,16 @@ export function CreateNewProduct(product){
   }
   return fetch(productListUrl, requestOptions);
 }
+
+export function CreateNewProductType(productType){
+  var currentToken = localStorage.getItem("token")
+  const requestOptions = {
+    method: 'POST',
+    headers: new Headers({
+      'Content-Type':'application/json',
+      'Authorization': "Token "+currentToken,
+    }),
+    body: JSON.stringify(productType)
+  }
+  return fetch(productTypeUrl, requestOptions);
+}
