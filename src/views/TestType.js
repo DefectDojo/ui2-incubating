@@ -1,5 +1,4 @@
 import { Chip } from "@material-ui/core";
-import { CallMissedSharp } from "@material-ui/icons";
 import { withStyles } from "@material-ui/styles";
 import React from "react"
 import {withRouter} from "react-router-dom";
