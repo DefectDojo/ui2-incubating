@@ -2,6 +2,7 @@ export const baseURL = "http://localhost:8080/api/v2/"
 export const productListUrl = baseURL+"products/"
 export const productTypeUrl = baseURL+"product_types/"
 export const engagementListUrl = baseURL+"engagements/"
+const testTypeUrl = baseURL+"test_types/"
 const userUrl = baseURL+"users/"
 
 export function FetchProductsData(setRowData){
@@ -154,4 +155,14 @@ export function CreateNewProductType(productType){
     body: JSON.stringify(productType)
   }
   return fetch(productTypeUrl, requestOptions);
+}
+
+export function FetchTestTypes(){
+  var currentToken = localStorage.getItem("token")
+  return fetch(testTypeUrl, {
+      headers: new Headers({
+        'Accept':'application/json',
+        'Authorization': "Token "+currentToken,
+      })
+    })
 }

@@ -7,6 +7,7 @@ import TopBar  from "../TopBar/topbar.js";
 import {withRouter} from "react-router-dom";
 import AddProduct from './AddProduct';
 import AddProductType from './AddProductType';
+import TestType from './TestType';
 
 class Main extends React.Component{
     constructor(props){
@@ -34,6 +35,7 @@ class Main extends React.Component{
         <PrivateRoute exact path='/products' component={Product} />
         <PrivateRoute exact path='/product/add' component={AddProduct}/> 
         <PrivateRoute exact path='/producttype/add' component={AddProductType}/> 
+        <PrivateRoute exact path='/testtype' component={TestType}/> 
         <PrivateRoute key="engagement_all" exact path='/engagements/all' component={Engagement}/> 
         <PrivateRoute key="engagement_active" exact path='/engagements/active' component={Engagement}/> 
         </Switch>
