@@ -90,7 +90,10 @@ const Aside = () => {
               Active Engagements
               <Link to="/engagements/active"/>
             </MenuItem>
-            <MenuItem>submenu 3</MenuItem>
+            <MenuItem>
+              Test Types
+              <Link to="/testtype"/>
+            </MenuItem>
           </SubMenu>
 
        </Menu>
