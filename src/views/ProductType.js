@@ -2,7 +2,7 @@ import React from "react";
 import { DataGrid, GridToolbar } from '@material-ui/data-grid';
 import { withStyles } from "@material-ui/styles";
 import { Fragment } from "react";
-import {FetchEngagementData, FetchProductTypes} from "../services/api.js";
+import {FetchProductTypes} from "../services/api.js";
 import { Check, Clear } from "@material-ui/icons";
 
 const columns =[
