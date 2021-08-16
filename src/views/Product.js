@@ -154,7 +154,7 @@ class Product extends React.Component {
     const { classes } = this.props
     return (
       <Fragment>
-      <div style={{ height: 600, width: '100%', textAlign:'center' }} className={classes.root} >
+      <div style={{ height: '90vh', width: '100%', textAlign:'center' }} className={classes.root} >
       <DataGrid
         rows={this.state.rows}
         columns={columns}

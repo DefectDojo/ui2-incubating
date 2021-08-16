@@ -9,6 +9,7 @@ import AddProduct from './AddProduct';
 import AddProductType from './AddProductType';
 import TestType from './TestType';
 import ProductType from './ProductType';
+import AddTestType from './AddTestType';
 
 class Main extends React.Component{
     constructor(props){
@@ -37,6 +38,7 @@ class Main extends React.Component{
         <PrivateRoute exact path='/product/add' component={AddProduct}/> 
         <PrivateRoute exact path='/producttypes' component={ProductType}/> 
         <PrivateRoute exact path='/producttype/add' component={AddProductType}/> 
+        <PrivateRoute exact path='/testtype/add' component={AddTestType}/> 
         <PrivateRoute exact path='/testtype' component={TestType}/> 
         <PrivateRoute key="engagement_all" exact path='/engagements/all' component={Engagement}/> 
         <PrivateRoute key="engagement_active" exact path='/engagements/active' component={Engagement}/> 
@@ -45,6 +47,7 @@ class Main extends React.Component{
         ? <Switch>
             <PrivateRoute exact path="/product/add" component={AddProduct} />
             <PrivateRoute exact path='/producttype/add' component={AddProductType}/> 
+            <PrivateRoute exact path='/testtype/add' component={AddTestType}/> 
           </Switch>
         : null
          }

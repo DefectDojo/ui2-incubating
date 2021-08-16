@@ -21,13 +21,14 @@ class TestType extends React.Component{
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.populateTestTypes = this.populateTestTypes.bind(this)
+        this.addTestType = this.addTestType.bind(this)
         this.state = {
             chipData:[],
         }
     }
 
     handleClick(){
-        alert("hahah");
+        alert("Yet to be Implemented");
     }
 
     populateTestTypes(array){
@@ -50,6 +51,10 @@ class TestType extends React.Component{
         .then(this.populateTestTypes);
     }
 
+    addTestType(){
+        this.props.history.push({ pathname: "/testtype/add", state:{modal:true}});
+    }
+
     componentDidMount(){
         this.GetAllTestTypes();
     }
@@ -59,6 +64,11 @@ class TestType extends React.Component{
         const {classes} = this.props
         return <div className="container-fluid">
             <div className={classes.root}>
+                <Chip 
+                    color="secondary"
+                    label="Add Test Type"
+                    onClick={this.addTestType}
+                />
                 {
                 this.state.chipData.map(data => {
                     return <Chip
