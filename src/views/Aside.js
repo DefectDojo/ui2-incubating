@@ -94,6 +94,10 @@ const Aside = () => {
               Test Types
               <Link to="/testtype"/>
             </MenuItem>
+            <MenuItem>
+            Environments
+            <Link to="/environments"/>
+            </MenuItem>
           </SubMenu>
 
        </Menu>

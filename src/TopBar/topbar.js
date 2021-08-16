@@ -35,6 +35,9 @@ class TopBar extends Component{
             case "/testtype":
                 page="Test Types"
                 break
+            case "/environments":
+                page="Environments"
+                break
             default:
                 page="Unknown"
         }
