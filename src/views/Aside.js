@@ -64,7 +64,7 @@ const Aside = () => {
 
 
             <MenuItem>All Product Types
-            <Link to="/producttype"/>
+            <Link to="/producttypes"/>
             </MenuItem>
 
             <MenuItem>Add Product Type 
