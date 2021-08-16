@@ -4,6 +4,7 @@ export const productTypeUrl = baseURL+"product_types/"
 export const engagementListUrl = baseURL+"engagements/"
 const testTypeUrl = baseURL+"test_types/"
 const userUrl = baseURL+"users/"
+const environmentUrl = baseURL+"development_environments/"
 
 export function FetchProductsData(setRowData){
     var currentToken = localStorage.getItem("token")
@@ -143,6 +144,16 @@ function FetchEngagementByProductId(id){
       });
 }
 
+export function FetchEnvironments(){
+  var currentToken = localStorage.getItem("token")
+  return fetch(environmentUrl, {
+    headers: new Headers({
+      'Accept':'application/json',
+      'Authorization': "Token "+currentToken,
+    })
+  })
+}
+
 export function FetchUsers(){
   var currentToken = localStorage.getItem("token")
   return fetch(userUrl, {
@@ -190,6 +201,19 @@ export function CreateNewTestType(testType){
     body: JSON.stringify(testType)
   }
   return fetch(testTypeUrl, requestOptions);
+}
+
+export function CreateNewEnvironment(environment){
+  var currentToken = localStorage.getItem("token")
+  const requestOptions = {
+    method: 'POST',
+    headers: new Headers({
+      'Content-Type':'application/json',
+      'Authorization': "Token "+currentToken,
+    }),
+    body: JSON.stringify(environment)
+  }
+  return fetch(environmentUrl, requestOptions);
 }
 
 export function FetchTestTypes(){
