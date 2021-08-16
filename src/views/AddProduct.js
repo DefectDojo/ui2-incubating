@@ -18,8 +18,6 @@ class AddProduct extends React.Component {
   createProductTypeOptions(){
     const selectElement =document.getElementById("product_type")
     FetchProductTypes()
-    .then(res => res.json())
-    .then(res=> res["results"])
     .then(res => res.map(arr => {
       selectElement.append(new Option(arr["name"], arr["id"]))
       return arr;

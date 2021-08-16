@@ -179,6 +179,19 @@ export function CreateNewProductType(productType){
   return fetch(productTypeUrl, requestOptions);
 }
 
+export function CreateNewTestType(testType){
+  var currentToken = localStorage.getItem("token")
+  const requestOptions = {
+    method: 'POST',
+    headers: new Headers({
+      'Content-Type':'application/json',
+      'Authorization': "Token "+currentToken,
+    }),
+    body: JSON.stringify(testType)
+  }
+  return fetch(testTypeUrl, requestOptions);
+}
+
 export function FetchTestTypes(){
   var currentToken = localStorage.getItem("token")
   return fetch(testTypeUrl, {
