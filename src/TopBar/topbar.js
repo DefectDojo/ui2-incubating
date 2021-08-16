@@ -23,6 +23,9 @@ class TopBar extends Component{
             case "/products":
                 page="Products"
                 break
+            case "/producttypes":
+                page="Product Types"
+                break
             case "/engagements/all":
                 page="All Engagements"
                 break

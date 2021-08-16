@@ -77,6 +77,38 @@ export function FetchEngagementData(setRowData, active){
     .then(res => setRowData(res))
   }
 
+export function FetchProductTypes(){
+  var currentToken = localStorage.getItem("token")
+  return fetch(productTypeUrl,{
+    method:"get",
+    headers: new Headers({
+          'Accept': 'application/json',
+          'Authorization': "Token "+currentToken,
+        })
+  })
+    .then(res => res.json())
+    .then(res => res["results"])
+    .then(async(res) => {
+        return await Promise.all(res.map(async(response) => {
+            const typepromise = await FetchProductByProductTypeId(response["id"])
+            const type = await typepromise.json()
+            response["prod_count"] = type["count"]
+            return response
+        }))
+    })
+}
+
+function FetchProductByProductTypeId(id){
+    var currentToken = localStorage.getItem("token")
+    return fetch(productListUrl+"?prod_type="+id, {
+        method: 'get',
+        headers: new Headers({
+          'Accept': 'application/json',
+          'Authorization': "Token "+currentToken,
+        })
+      });
+}
+
 function FetchProductTypeNameById(id){
     var currentToken = localStorage.getItem("token")
     return fetch(productTypeUrl+id+"/", {
@@ -109,16 +141,6 @@ function FetchEngagementByProductId(id){
           'Authorization': "Token "+currentToken,
         })
       });
-}
-
-export function FetchProductTypes(){
-  var currentToken = localStorage.getItem("token")
-  return fetch(productTypeUrl, {
-    headers: new Headers({
-      'Accept':'application/json',
-      'Authorization': "Token "+currentToken,
-    })
-  })
 }
 
 export function FetchUsers(){
