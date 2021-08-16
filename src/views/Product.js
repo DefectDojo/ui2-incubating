@@ -7,6 +7,8 @@ import StarIcon from '@material-ui/icons/Star';
 import StarBorderIcon from '@material-ui/icons/StarBorder';
 import Tooltip from '@material-ui/core/Tooltip';
 import Chip from '@material-ui/core/Chip';
+import { Add } from "@material-ui/icons";
+import { Button, Col, Row } from "react-bootstrap";
 
 function criticality(str){
   const arr={"very high": 5, "high":4, "medium":3, "low":2, "very low":1, "none":0};
@@ -138,6 +140,11 @@ class Product extends React.Component {
       rows: []
     }
     this.setRowData = this.setRowData.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick(){
+    this.props.history.push({pathname: "/product/add", state:{modal:true}});
   }
 
   setRowData(rowData){
@@ -154,6 +161,12 @@ class Product extends React.Component {
     const { classes } = this.props
     return (
       <Fragment>
+      <Row>
+        <Col md={11}/>
+        <Col>
+          <Button onClick={this.handleClick}><Add style={{fill: "white"}}/></Button>
+        </Col>
+      </Row>
       <div style={{ height: '90vh', width: '100%', textAlign:'center' }} className={classes.root} >
       <DataGrid
         rows={this.state.rows}
