@@ -2,7 +2,7 @@ import { Chip } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
 import React from "react"
 import {withRouter} from "react-router-dom";
-import { FetchEnvironments } from "../services/api";
+import { FetchEnvironments, DeleteEnvironment } from "../services/api";
 
 const useStyles = ((theme) => ({
     root: {
@@ -79,6 +79,7 @@ class Environment extends React.Component{
                             label={data.name}
 			    clickable={true}
                             onClick={() => this.editEnvironment(data.key, data.name)}
+			    onDelete={() => DeleteEnvironment(data.key)}
                             />
                 })
                 }

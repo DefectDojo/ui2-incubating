@@ -240,6 +240,17 @@ export function UpdateEnvironment(environment, id){
   return fetch(environmentUrl+id+"/", requestOptions);
 }
 
+export function DeleteEnvironment(id){
+  var currentToken = localStorage.getItem("token")
+  const requestOptions = {
+    method: 'DELETE',
+    headers: new Headers({
+      'Authorization': "Token "+currentToken,
+    }),
+  }
+  return fetch(environmentUrl+id+"/", requestOptions);
+}
+
 export function FetchTestTypes(){
   var currentToken = localStorage.getItem("token")
   return fetch(testTypeUrl+"?limit=500", {
