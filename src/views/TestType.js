@@ -2,7 +2,7 @@ import { Chip } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
 import React from "react"
 import {withRouter} from "react-router-dom";
-import { FetchTestTypes } from "../services/api";
+import { FetchTestTypes, DeleteTestType } from "../services/api";
 
 const useStyles = ((theme) => ({
     root: {
@@ -19,16 +19,12 @@ const useStyles = ((theme) => ({
 class TestType extends React.Component{
     constructor(props){
         super(props);
-        this.handleClick = this.handleClick.bind(this);
+        this.editTestType = this.editTestType.bind(this);
         this.populateTestTypes = this.populateTestTypes.bind(this)
         this.addTestType = this.addTestType.bind(this)
         this.state = {
             chipData:[],
         }
-    }
-
-    handleClick(){
-        alert("Yet to be Implemented");
     }
 
     populateTestTypes(array){
@@ -55,6 +51,10 @@ class TestType extends React.Component{
         this.props.history.push({ pathname: "/testtype/add", state:{modal:true}});
     }
 
+    editTestType(key){
+        this.props.history.push({ pathname: "/testtype/edit", state:{modal:true, id: key}});
+    }
+
     componentDidMount(){
         this.GetAllTestTypes();
     }
@@ -75,7 +75,8 @@ class TestType extends React.Component{
                             color="primary"
                             key={data.key}
                             label={data.name}
-                            onClick={this.handleClick}
+                            onClick={() => this.editTestType(data.key)}
+			    onDelete={() => DeleteTestType(data.key)}
                             />
                 })
                 }

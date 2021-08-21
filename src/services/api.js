@@ -201,19 +201,6 @@ export function CreateNewProductType(productType){
   return fetch(productTypeUrl, requestOptions);
 }
 
-export function CreateNewTestType(testType){
-  var currentToken = localStorage.getItem("token")
-  const requestOptions = {
-    method: 'POST',
-    headers: new Headers({
-      'Content-Type':'application/json',
-      'Authorization': "Token "+currentToken,
-    }),
-    body: JSON.stringify(testType)
-  }
-  return fetch(testTypeUrl, requestOptions);
-}
-
 export function CreateNewEnvironment(environment){
   var currentToken = localStorage.getItem("token")
   const requestOptions = {
@@ -259,6 +246,43 @@ export function FetchTestTypes(){
         'Authorization': "Token "+currentToken,
       })
     })
+}
+
+export function CreateNewTestType(testType){
+  var currentToken = localStorage.getItem("token")
+  const requestOptions = {
+    method: 'POST',
+    headers: new Headers({
+      'Content-Type':'application/json',
+      'Authorization': "Token "+currentToken,
+    }),
+    body: JSON.stringify(testType)
+  }
+  return fetch(testTypeUrl, requestOptions);
+}
+
+export function UpdateTestType(testType, id){
+  var currentToken = localStorage.getItem("token")
+  const requestOptions = {
+    method: 'PUT',
+    headers: new Headers({
+      'Content-Type':'application/json',
+      'Authorization': "Token "+currentToken,
+    }),
+    body: JSON.stringify(testType)
+  }
+  return fetch(testTypeUrl+id+"/", requestOptions);
+}
+
+export function DeleteTestType(id){
+  var currentToken = localStorage.getItem("token")
+  const requestOptions = {
+    method: 'DELETE',
+    headers: new Headers({
+      'Authorization': "Token "+currentToken,
+    }),
+  }
+  return fetch(testTypeUrl+id+"/", requestOptions);
 }
 
 export function FetchFindings(query){
