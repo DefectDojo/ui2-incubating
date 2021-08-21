@@ -20,6 +20,7 @@ class TestType extends React.Component{
     constructor(props){
         super(props);
         this.editTestType = this.editTestType.bind(this);
+	this.removeChip = this.removeChip.bind(this);
         this.populateTestTypes = this.populateTestTypes.bind(this)
         this.addTestType = this.addTestType.bind(this)
         this.state = {
@@ -48,7 +49,7 @@ class TestType extends React.Component{
     }
 
     addTestType(){
-        this.props.history.push({ pathname: "/testtype/add", state:{modal:true}});
+        this.props.history.push({ pathname: "/testtype/add", state:{modal:true, addChip: this.addChip}});
     }
 
     editTestType(key){
@@ -58,7 +59,14 @@ class TestType extends React.Component{
     componentDidMount(){
         this.GetAllTestTypes();
     }
-
+    
+   removeChip(id){
+	   DeleteTestType(id)
+	   var newList = this.state.chipData.filter(ele => ele.key !== id)
+	   this.setState({
+		   chipData : newList
+	   });
+   }
 
     render(){
         const {classes} = this.props
@@ -76,7 +84,7 @@ class TestType extends React.Component{
                             key={data.key}
                             label={data.name}
                             onClick={() => this.editTestType(data.key)}
-			    onDelete={() => DeleteTestType(data.key)}
+			    onDelete={() => this.removeChip(data.key)}
                             />
                 })
                 }
