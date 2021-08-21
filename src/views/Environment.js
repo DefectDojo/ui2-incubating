@@ -19,16 +19,12 @@ const useStyles = ((theme) => ({
 class Environment extends React.Component{
     constructor(props){
         super(props);
-        this.handleClick = this.handleClick.bind(this);
+        this.editEnvironment = this.editEnvironment.bind(this);
         this.populateEnvironments = this.populateEnvironments.bind(this)
         this.addEnvironment = this.addEnvironment.bind(this)
         this.state = {
             chipData:[],
         }
-    }
-
-    handleClick(){
-        alert("Yet to be Implemented");
     }
 
     populateEnvironments(array){
@@ -55,10 +51,16 @@ class Environment extends React.Component{
         this.props.history.push({ pathname: "/environment/add", state:{modal:true}});
     }
 
+    editEnvironment(key, value){
+	this.props.history.push({
+		pathname:'/environment/edit',
+		state: { id: key, name: value, modal:true}
+	});
+    }
+
     componentDidMount(){
         this.GetAllEnvironments();
     }
-
 
     render(){
         const {classes} = this.props
@@ -75,7 +77,8 @@ class Environment extends React.Component{
                             color="primary"
                             key={data.key}
                             label={data.name}
-                            onClick={this.handleClick}
+			    clickable={true}
+                            onClick={() => this.editEnvironment(data.key, data.name)}
                             />
                 })
                 }
