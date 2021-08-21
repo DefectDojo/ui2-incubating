@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import { Container, Modal, Button, Form, Row, Col } from 'react-bootstrap';
-import { CreateNewTestType } from '../services/api';
+import { CreateNewTestType, UpdateTestType } from '../services/api';
 
 class AddTestType extends React.Component {
 
@@ -11,6 +11,8 @@ class AddTestType extends React.Component {
       static_tool: false,
       dynamic_tool: false,
       active: true,
+      name: "Enter Test Type Name",
+      heading: '',
     }
     this.onFormSubmit = this.onFormSubmit.bind(this);
     this.onChange = this.onChange.bind(this);
@@ -24,6 +26,24 @@ class AddTestType extends React.Component {
     })
   }
 
+  componentDidMount(){
+    var path = this.props.location.pathname.split("/")[2]
+    var localHeading = ''
+    var localMode = ''
+    if(path === "add"){
+	    localHeading = "Register New Test Type"
+	    localMode='add'
+    } else if(path === "edit"){
+	    localHeading= "Edit Existing Test Type"
+	    localMode='edit'
+    }
+
+    this.setState({
+	    heading: localHeading,
+	    mode:localMode,
+    });
+  }
+
   onFormSubmit(e){
     e.preventDefault()
     const formData = new FormData(e.target)
@@ -31,7 +51,13 @@ class AddTestType extends React.Component {
     formDataObj['static_tool'] = this.state.static_tool;
     formDataObj['dynamic_tool'] = this.state.dynamic_tool;
     formDataObj['active'] = this.state.active;
-    CreateNewTestType(formDataObj)
+
+    if(this.state.mode === "add"){
+    	CreateNewTestType(formDataObj);
+    } else {
+	UpdateTestType(formDataObj, this.props.location.state.id);
+    }
+
     this.props.history.goBack();
   }
 
@@ -44,7 +70,7 @@ class AddTestType extends React.Component {
     >
       <Modal.Dialog size="lg" onClick={e => e.stopPropagation()}>
       <Modal.Header>
-        <Modal.Title>Register New Test Type</Modal.Title>
+        <Modal.Title>{this.state.heading}</Modal.Title>
       </Modal.Header>
     
       <Modal.Body>
@@ -52,7 +78,7 @@ class AddTestType extends React.Component {
         <Form onSubmit={this.onFormSubmit}>
             <Form.Group className="mb-3">
               <Form.Label>Name</Form.Label>
-              <Form.Control type="text" name="name" placeholder="Enter Test Type Name" required/>
+              <Form.Control type="text" name="name" placeholder={this.state.name} required/>
             </Form.Group>
           
             <Row>

@@ -42,6 +42,7 @@ class Main extends React.Component{
 		<PrivateRoute exact path='/producttypes' component={ProductType}/> 
 		<PrivateRoute exact path='/producttype/add' component={AddProductType}/> 
 		<PrivateRoute exact path='/testtype/add' component={AddTestType}/> 
+		<PrivateRoute exact path='/testtype/edit' component={AddTestType}/> 
 		<PrivateRoute exact path='/testtype' component={TestType}/> 
 		<PrivateRoute exact path='/environments' component={Environment}/> 
 		<PrivateRoute exact path='/environment/add' component={AddEnvironment}/> 
@@ -59,6 +60,7 @@ class Main extends React.Component{
             <PrivateRoute exact path="/product/add" component={AddProduct} />
             <PrivateRoute exact path='/producttype/add' component={AddProductType}/> 
             <PrivateRoute exact path='/testtype/add' component={AddTestType}/> 
+            <PrivateRoute exact path='/testtype/edit' component={AddTestType}/> 
             <PrivateRoute exact path='/environment/add' component={AddEnvironment}/> 
             <PrivateRoute exact path='/environment/edit' component={AddEnvironment}/> 
           </Switch>

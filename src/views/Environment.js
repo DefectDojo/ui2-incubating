@@ -20,6 +20,7 @@ class Environment extends React.Component{
     constructor(props){
         super(props);
         this.editEnvironment = this.editEnvironment.bind(this);
+	this.removeChip = this.removeChip.bind(this);
         this.populateEnvironments = this.populateEnvironments.bind(this)
         this.addEnvironment = this.addEnvironment.bind(this)
         this.state = {
@@ -58,6 +59,14 @@ class Environment extends React.Component{
 	});
     }
 
+    removeChip(id){
+	   DeleteEnvironment(id)
+	   var newList = this.state.chipData.filter(ele => ele.key !== id)
+	   this.setState({
+		   chipData : newList
+	   });
+   }
+
     componentDidMount(){
         this.GetAllEnvironments();
     }
@@ -79,7 +88,7 @@ class Environment extends React.Component{
                             label={data.name}
 			    clickable={true}
                             onClick={() => this.editEnvironment(data.key, data.name)}
-			    onDelete={() => DeleteEnvironment(data.key)}
+			    onDelete={() => this.removeChip(data.key)}
                             />
                 })
                 }
