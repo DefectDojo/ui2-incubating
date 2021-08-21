@@ -229,7 +229,7 @@ export function CreateNewEnvironment(environment){
 
 export function FetchTestTypes(){
   var currentToken = localStorage.getItem("token")
-  return fetch(testTypeUrl, {
+  return fetch(testTypeUrl+"?limit=500", {
       headers: new Headers({
         'Accept':'application/json',
         'Authorization': "Token "+currentToken,
