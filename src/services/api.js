@@ -227,6 +227,30 @@ export function CreateNewEnvironment(environment){
   return fetch(environmentUrl, requestOptions);
 }
 
+export function UpdateEnvironment(environment, id){
+  var currentToken = localStorage.getItem("token")
+  const requestOptions = {
+    method: 'PUT',
+    headers: new Headers({
+      'Content-Type':'application/json',
+      'Authorization': "Token "+currentToken,
+    }),
+    body: JSON.stringify(environment)
+  }
+  return fetch(environmentUrl+id+"/", requestOptions);
+}
+
+export function DeleteEnvironment(id){
+  var currentToken = localStorage.getItem("token")
+  const requestOptions = {
+    method: 'DELETE',
+    headers: new Headers({
+      'Authorization': "Token "+currentToken,
+    }),
+  }
+  return fetch(environmentUrl+id+"/", requestOptions);
+}
+
 export function FetchTestTypes(){
   var currentToken = localStorage.getItem("token")
   return fetch(testTypeUrl+"?limit=500", {
