@@ -9,7 +9,7 @@ import {
   SidebarFooter,
   SidebarContent,
 } from 'react-pro-sidebar';
-import { FaTachometerAlt, FaList, FaInbox } from 'react-icons/fa';
+import { FaTachometerAlt, FaList, FaInbox, FaBug } from 'react-icons/fa';
 import defectdogologo from "../images/defect.png";
 
 const Aside = () => {
@@ -97,6 +97,29 @@ const Aside = () => {
             <MenuItem>
             Environments
             <Link to="/environments"/>
+            </MenuItem>
+          </SubMenu>
+
+	<SubMenu
+	    prefix={<span className="badge gray">3</span>}
+	    title="withPrefix"
+	    icon={<FaBug />}
+	  >
+            <MenuItem>
+              Open Findings
+              <Link to="/findings/open"/>
+            </MenuItem>
+            <MenuItem>
+              All Findings
+              <Link to="/findings/all"/>
+            </MenuItem>
+            <MenuItem>
+              Closed Findings
+              <Link to="/findings/closed"/>
+            </MenuItem>
+            <MenuItem>
+             Risk Accepted Findings
+            <Link to="/findings/accepted"/>
             </MenuItem>
           </SubMenu>
 

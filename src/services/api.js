@@ -5,6 +5,7 @@ export const engagementListUrl = baseURL+"engagements/"
 const testTypeUrl = baseURL+"test_types/"
 const userUrl = baseURL+"users/"
 const environmentUrl = baseURL+"development_environments/"
+const findingUrl = baseURL+"findings/"
 
 export function FetchProductsData(setRowData){
     var currentToken = localStorage.getItem("token")
@@ -121,7 +122,7 @@ function FetchProductTypeNameById(id){
       });
 }
 
-function FetchProductByProductId(id){
+export function FetchProductByProductId(id){
   var currentToken = localStorage.getItem("token")
     return fetch(productListUrl+id+"/", {
         method: 'get',
@@ -157,6 +158,16 @@ export function FetchEnvironments(){
 export function FetchUsers(){
   var currentToken = localStorage.getItem("token")
   return fetch(userUrl, {
+    headers: new Headers({
+      'Accept':'application/json',
+      'Authorization': "Token "+currentToken,
+    })
+  })
+}
+
+export function FetchUserById(id){
+  var currentToken = localStorage.getItem("token")
+  return fetch(userUrl+id+"/", {
     headers: new Headers({
       'Accept':'application/json',
       'Authorization': "Token "+currentToken,
@@ -219,6 +230,16 @@ export function CreateNewEnvironment(environment){
 export function FetchTestTypes(){
   var currentToken = localStorage.getItem("token")
   return fetch(testTypeUrl, {
+      headers: new Headers({
+        'Accept':'application/json',
+        'Authorization': "Token "+currentToken,
+      })
+    })
+}
+
+export function FetchFindings(query){
+  var currentToken = localStorage.getItem("token")
+  return fetch(findingUrl+query, {
       headers: new Headers({
         'Accept':'application/json',
         'Authorization': "Token "+currentToken,

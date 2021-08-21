@@ -12,6 +12,7 @@ import ProductType from './ProductType';
 import AddTestType from './AddTestType';
 import Environment from './Environment';
 import AddEnvironment from './AddEnvironment';
+import Finding from './Finding';
 
 class Main extends React.Component{
     constructor(props){
@@ -36,17 +37,22 @@ class Main extends React.Component{
         <div className="container-fluid">
         <TopBar/>
         <Switch location={isModal ? this.previousLocation : location} >
-        <PrivateRoute exact path='/products' component={Product} />
-        <PrivateRoute exact path='/product/add' component={AddProduct}/> 
-        <PrivateRoute exact path='/producttypes' component={ProductType}/> 
-        <PrivateRoute exact path='/producttype/add' component={AddProductType}/> 
-        <PrivateRoute exact path='/testtype/add' component={AddTestType}/> 
-        <PrivateRoute exact path='/testtype' component={TestType}/> 
-        <PrivateRoute exact path='/environments' component={Environment}/> 
-        <PrivateRoute exact path='/environment/add' component={AddEnvironment}/> 
-        <PrivateRoute key="engagement_all" exact path='/engagements/all' component={Engagement}/> 
-        <PrivateRoute key="engagement_active" exact path='/engagements/active' component={Engagement}/> 
+		<PrivateRoute exact path='/products' component={Product} />
+		<PrivateRoute exact path='/product/add' component={AddProduct}/> 
+		<PrivateRoute exact path='/producttypes' component={ProductType}/> 
+		<PrivateRoute exact path='/producttype/add' component={AddProductType}/> 
+		<PrivateRoute exact path='/testtype/add' component={AddTestType}/> 
+		<PrivateRoute exact path='/testtype' component={TestType}/> 
+		<PrivateRoute exact path='/environments' component={Environment}/> 
+		<PrivateRoute exact path='/environment/add' component={AddEnvironment}/> 
+		<PrivateRoute key="engagement_all" exact path='/engagements/all' component={Engagement}/> 
+		<PrivateRoute key="engagement_active" exact path='/engagements/active' component={Engagement}/> 
+		<PrivateRoute key="finding_all" exact path="/findings/all" component={Finding}/>
+		<PrivateRoute key="finding_open" exact path="/findings/open" component={Finding}/>
+		<PrivateRoute key="finding_closed" exact path="/findings/closed" component={Finding}/>
+		<PrivateRoute key="finding_accepted" exact path="/findings/accepted" component={Finding}/>
         </Switch>
+
         {isModal
         ? <Switch>
             <PrivateRoute exact path="/product/add" component={AddProduct} />
