@@ -32,6 +32,18 @@ class TopBar extends Component{
             case "/engagements/active":
                 page="Active Engagements"
                 break
+	    case "/findings/open":
+		page="Open Findings"
+		break
+	    case "/findings/closed":
+		page="Closed Findings"
+		break
+	    case "/findings/all":
+		page="All Findings"
+		break
+	    case "/findings/accepted":
+		page="Risk Accepted Findings"
+		break
             case "/testtype":
                 page="Test Types"
                 break
