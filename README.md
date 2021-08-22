@@ -18,14 +18,14 @@ We used an agile methodology to keep track of requirements and development time 
 
 ## Work Done
 1. This repository holds all the code that was done during GSOC 2021 and will be forked moving further.
-2. 18 screens were broken down into 4 base reusable components. 
+2. 16 screens were broken down into 4 base reusable components. 
 
 | Component Name          	| Screen Name                                                                                                                                                              	| Number of Screens 	|
 |-------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|-------------------	|
-| BaseTableComponent      	| Product -> Product List Product -> Product Type Engagement -> Active Engagement Engagement -> All Engagements                                                            	| 4                 	|
-| ModalComponent          	| Products -> Add/Edit Product Products -> Add/Edit Product Type Engagements -> Add/Edit Engagement Engagements -> Add/Edit Test Type Engagements -> Add/Edit environments 	| 5                 	|
-| TabListComponent        	| Engagements -> Test Types Engagements -> Environments                                                                                                                    	| 2                 	|
-| SelectionTableComponent 	| Findings -> Open Findings Findings -> All Findings Findings -> Closed Findings Findings -> Risk Accepted Findings Endpoints -> All EndPoints                             	| 5                 	|
+| BaseTableComponent      	| Product -> Product List <br />Product -> Product Type </br> Engagement -> Active Engagement <br/>Engagement -> All Engagements                                                            	| 4                 	|
+| ModalComponent          	| Products -> Add/Edit Product <br/>Products -> Add/Edit Product Type <br/>Engagements -> Add/Edit Engagement <br/>Engagements -> Add/Edit Test Type <br/> Engagements -> Add/Edit environments 	| 5                 	|
+| TabListComponent        	| Engagements -> Test Types <br/> Engagements -> Environments                                                                                                                    	| 2                 	|
+| SelectionTableComponent 	| Findings -> Open Findings <br/> Findings -> All Findings <br/>Findings -> Closed Findings <br/>Findings -> Risk Accepted Findings<br/> Endpoints -> All EndPoints                             	| 5                 	|
 
    3. The components were coded and used across each of these screens
    4. Basic Authentication was used to navigate all the protected routes.
