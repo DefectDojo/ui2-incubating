@@ -1,11 +1,52 @@
-# Defect Dojo new UI v2 incubating Work in Progress - GSoC 2021
-## Setup for local development
-Spinning up the local ReactJS environment on port 3000 and a local DefectDojo backend will create CORS conflicts.
+# Defect Dojo UI V2 - GSOC 2021
 
-> Due to a current bug, the current password should be input with a trailing space. If you get some errors and have not tried that, please do.
+This Repository contains all the work done by [Me(Aniket Bhat)](https://github.com/AniketBhat) during the GSOC 2021 period. 
 
-### Assumptions
-- Your local react app runs on port 3000.
+[Defect Dojo](https://www.defectdojo.org/) is a open source vulnerability management and automation software. A [demo](https://demo.defectdojo.org/login?next=/) can be found here to tinker with the current implementation. 
+
+## Abstract
+Defect Dojo is a widely used software for management and analysis of workflows and automation. It was initially developed to be server side rendered with the Django stack. This approach although a more tranditional approach can cause a problem while dealing with lower bandwidth's and just the turn around time of a single request. Every click would ensure the whole page is rendered again. The main aim of this project was to deliver a modern UI with the architecture of the front
+
+## Project Requirements
+
+We used an agile methodology to keep track of requirements and development time using [JIRA](https://defectdojo.atlassian.net/jira/software/projects/UIV2/boards/9) software.
+
+1. Build a packageable open source standard frontend application in React
+2. Dockerise the React Application 
+3. Implement Basic Authentication Flow using the Django API v2.
+4. Code and Deliver Core Functionality Screens (Product, Engagement, Finding)    
+
+## Work Done
+1. This repository holds all the code that was done during GSOC 2021 and will be forked moving further.
+2. 18 screens were broken down into 4 base reusable components. 
+
+| Component Name          	| Screen Name                                                                                                                                                              	| Number of Screens 	|
+|-------------------------	|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------	|-------------------	|
+| BaseTableComponent      	| Product -> Product List Product -> Product Type Engagement -> Active Engagement Engagement -> All Engagements                                                            	| 4                 	|
+| ModalComponent          	| Products -> Add/Edit Product Products -> Add/Edit Product Type Engagements -> Add/Edit Engagement Engagements -> Add/Edit Test Type Engagements -> Add/Edit environments 	| 5                 	|
+| TabListComponent        	| Engagements -> Test Types Engagements -> Environments                                                                                                                    	| 2                 	|
+| SelectionTableComponent 	| Findings -> Open Findings Findings -> All Findings Findings -> Closed Findings Findings -> Risk Accepted Findings Endpoints -> All EndPoints                             	| 5                 	|
+
+   3. The components were coded and used across each of these screens
+   4. Basic Authentication was used to navigate all the protected routes.
+
+Below is the working demo of the completed work.
+
+## Lessons/Learnings
+It was a fun experience coding a summer project and there were many blockers and learnings along the way. Mainly:
+1. CORS tokens and Man in the middle attack precaution.
+1. React State Management
+1. React Routing for Security
+2. Building an Overlay React Modal which taught me about navigation state management.
+3. REST principles.
+4. Agile Methodologies
+5. Frontend And Backend Architecture Practices.
+6. Learning to set up Github Actions.
+7. Learning about docker and deployment technologies.
+# Setup for local development
+Spinning up the local ReactJS environment on port 3000 and a local DefectDojo backend will create CORS conflicts and the react application will start on 3001.
+k## Assumptions
+- Your local react app runs on port 3001.
 - You have a local DefectDojo instance running at localhost port 8080.
 
 ### Browser extension
@@ -83,17 +124,8 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-## Description
-
-This repository host files for the new UI (v2)
-
-## Context
-
-This work is done during GSOC 2021
-
 ## Contributors 
 
 * Aniket Bhat
-* Udit Mishra
 * Fred (mentor)
 * Damien (mentor)
