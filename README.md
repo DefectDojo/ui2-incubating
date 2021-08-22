@@ -32,6 +32,11 @@ We used an agile methodology to keep track of requirements and development time 
 
 Below is the working demo of the completed work.
 
+
+https://user-images.githubusercontent.com/64396289/130352547-299c6678-99f8-4a6f-a3c8-a179694ba83e.mov
+
+
+
 ## Lessons/Learnings
 It was a fun experience coding a summer project and there were many blockers and learnings along the way. Mainly:
 1. CORS tokens and Man in the middle attack precaution.
