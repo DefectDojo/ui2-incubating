@@ -20,8 +20,6 @@ RUN yarn build
 
 FROM ubuntu:latest
 
-USER root
-
 RUN apt-get update
 RUN apt-get install -y nginx
 
@@ -38,7 +36,7 @@ COPY --from=builder  /app/build/ /var/www/html/
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 # Expose ports
-EXPOSE 90
+EXPOSE 9000
 
 # Set the default command to execute
 # when creating a new container
