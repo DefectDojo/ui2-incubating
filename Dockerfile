@@ -1,3 +1,4 @@
+# builder part
 FROM node:16 AS builder
 
 WORKDIR /app
@@ -15,29 +16,6 @@ RUN yarn install
 RUN yarn build
 
 
-
-
-
-FROM ubuntu:latest
-
-RUN apt-get update
-RUN apt-get install -y nginx
-
-# Remove the default Nginx configuration file
-RUN rm -v /etc/nginx/nginx.conf
-
-# Copy a configuration file from the current directory
-ADD nginx.conf /etc/nginx/
-
-COPY --from=builder  /app/build/ /usr/share/nginx/html/
-COPY --from=builder  /app/build/ /var/www/html/
-
-# Append "daemon off;" to the beginning of the configuration
-RUN echo "daemon off;" >> /etc/nginx/nginx.conf
-
-# Expose ports
-EXPOSE 9000
-
-# Set the default command to execute
-# when creating a new container
-CMD service nginx start
+# runtime part
+FROM nginxinc/nginx-unprivileged:1.20-alpine
+COPY --from=builder  /app/build /usr/share/nginx/html
