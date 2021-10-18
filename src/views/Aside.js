@@ -10,7 +10,7 @@ import {
   SidebarContent,
 } from 'react-pro-sidebar';
 import { FaTachometerAlt, FaList, FaInbox, FaBug } from 'react-icons/fa';
-import defectdogologo from "../images/defect.png";
+import defectdogologo from "../assets/images/defect.png";
 
 const Aside = () => {
   return (

@@ -2,7 +2,7 @@ import React,{ Component } from "react";
 import { Navbar, Nav, Dropdown} from "react-bootstrap";
 import { withRouter } from "react-router";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
-import defectdojologo from '../images/defectdojo.png'
+import defectdojologo from '../../assets/images/defectdojo.png'
 
 class TopBar extends Component{
     constructor(props){
