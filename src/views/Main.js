@@ -3,7 +3,7 @@ import { Switch } from "react-router"
 import Product from "./Product"
 import Engagement from "./Engagement"
 import { PrivateRoute } from '../_components/PrivateRoute';
-import TopBar  from "../TopBar/topbar.js";
+import TopBar  from "../_components/TopBar/topbar.js";
 import {withRouter} from "react-router-dom";
 import AddProduct from './AddProduct';
 import AddProductType from './AddProductType';

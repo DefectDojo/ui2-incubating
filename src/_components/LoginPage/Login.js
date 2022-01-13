@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import{ Component } from 'react';
-import { authenticate, isLoggedIn } from '../services/auth';
+import { authenticate, isLoggedIn } from '../../services/auth';
 import { useHistory } from 'react-router-dom';
 
 class PasswordShowHide extends Component {
@@ -110,7 +110,7 @@ export default function SignIn() {
     <Container component="main" maxWidth="xs">
       <CssBaseline />
       <div className={classes.paper}>
-        <Avatar className={classes.avatar}  src={require("../images/defect.png")} />
+        <Avatar className={classes.avatar}  src={require("../../assets/images/defect.png")} />
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
